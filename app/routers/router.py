@@ -43,5 +43,7 @@ async def create_user(user: UserCreate, db: Session = Depends(get_db)):
         db.commit()
         db.refresh(user_instance)
     except IntegrityError:
+        api_logger.exception('Error adding new user')
         raise InvalidData()
+    api_logger.debug('Created new user')
     return user_instance.__dict__

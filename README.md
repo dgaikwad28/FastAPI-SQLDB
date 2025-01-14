@@ -36,6 +36,9 @@ This project is a FastAPI application designed to interact with a SQL database. 
 - The application will start on `http://127.0.0.1:8000`.
 - Use routes defined under `app/routers/router.py` to interact with the application.
 
+#### API Documentation
+- Swagger UI can be accessed on `http://127.0.0.1:8000/docs`.
+
 #### Development
 - Add new API routes by extending `app/routers/router.py`.
 - Add new models in `app/models/db_models.py` and ensure they are imported in `main.py`.
