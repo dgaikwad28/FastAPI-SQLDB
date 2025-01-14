@@ -28,7 +28,7 @@
       "class": "logging.handlers.RotatingFileHandler",
       "maxBytes": 10485760,
       "backupCount": 10,
-      "filename": "./logs/api.log",
+      "filename": "../logs/api.log",
       "formatter": "json"
     }
   },
