@@ -16,7 +16,10 @@ from app.routers.router import users_api_router
 def get_logger():
     config = logging_config()
     if config:
-        dictConfig(config)
+        try:
+            dictConfig(config)
+        except ValueError as e:
+            print('Logging Config Error: %s' % e)
 
 
 def init_app() -> FastAPI:
