@@ -1,3 +1,5 @@
+from logging.config import dictConfig
+
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
 from starlette.middleware.sessions import SessionMiddleware
@@ -6,12 +8,22 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from app.configs.session import engine
 from app.configs.settings import SETTINGS
 from app.exception_handlers import InvalidData, handler_uncaught_exception, incorrect_configuration, invalid_data
+from app.logging import logging_config
 from app.models.db_models import Base
 from app.routers.router import users_api_router
 
 
-def init_app():
+def get_logger():
+    config = logging_config()
+    if config:
+        dictConfig(config)
+
+
+def init_app() -> FastAPI:
     Base.metadata.create_all(bind=engine)
+
+    # setup logging
+    get_logger()
 
     _app = FastAPI(debug=SETTINGS.debug)
     # exceptions
