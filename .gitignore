@@ -1,0 +1,10 @@
+main.db
+
+env/.env
+
+.idea/
+
+# pyenv
+.python-version
+.venv
+venv/

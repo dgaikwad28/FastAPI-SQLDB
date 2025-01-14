@@ -1,0 +1,8 @@
+fastapi==0.115.5
+gunicorn
+itsdangerous
+pydantic-settings
+pydantic==2.9.2
+sqlalchemy
+uvicorn[standard]
+pydantic[email]
