@@ -9,4 +9,5 @@ env/.env
 .venv
 venv/
 
+!logs
 logs/*

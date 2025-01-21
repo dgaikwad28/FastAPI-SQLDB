@@ -1,0 +1,14 @@
+version: '3.12'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./env:/app/env
+      - ./main.db:/app/main.db
+    environment:
+      UVICORN_WORKERS: 4
